@@ -168,12 +168,36 @@ VKDD::VKBB ; set key +
 ; Custom mappings for special chars
 ; --------------------------------------------------------------
 
-RAlt & a::Send {U+00E4} ; RightAlt + a -> ä
-RAlt & u::Send {U+00FC} ; RightAlt + u -> ü
-RAlt & o::Send {U+00F6} ; RightAlt + o -> ö 
 RAlt & s::Send {U+00DF} ; RightAlt + s -> ß
 
-;RAlt & RShift & a::Send {U+00C4} ; RightAlt + RightShift + a -> Ä; not working
+; RightAlt + a -> ä
+; RightAlt + RightShift + a -> Ä
+; see https://superuser.com/a/1713476/322351
+RAlt & a::
+If GetKeyState("RShift","P")=1
+    Send {U+00C4}
+else
+    Send {U+00E4}
+return
+
+; RightAlt + u -> ü
+; RightAlt + RightShift + u -> Ü
+RAlt & u::
+If GetKeyState("RShift","P")=1
+    Send {U+00DC}
+else
+    Send {U+00FC}
+return
+
+; RightAlt + o -> ö
+; RightAlt + RightShift + o -> Ö
+RAlt & o::
+If GetKeyState("RShift","P")=1
+    Send {U+00D6}
+else
+    Send {U+00F6}
+return
+
 
 ; --------------------------------------------------------------
 ; Application specific
