@@ -11,5 +11,5 @@ Installation
 ------------
 
 - Install [AutoHotkey](https://www.autohotkey.com/) 
-- Run the `MacKeyboard.ahk` file
+- Run the `MacKeyboard.ahk` file (save the file as UTF8 with BOM)
 - Put the `MacKeyboard.ahk` file or a shortcut to the file in your Autostart folder to run it automatically on startup.
