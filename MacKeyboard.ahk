@@ -1,5 +1,6 @@
 ;-----------------------------------------
-; Mac keyboard to Windows Key Mappings
+; Mac PT-PT keyboard to Windows Key Mappings
+; IMPORTANT: save this file as UTF8 with BOM
 ;=========================================
 
 ; --------------------------------------------------------------
@@ -54,12 +55,6 @@ F12::SendInput {Volume_Up}
 F13::SendInput {PrintScreen}
 F14::SendInput {ScrollLock}
 F15::SendInput {Pause}
-
-;F16-19 custom app launchers, see http://www.autohotkey.com/docs/Tutorial.htm for usage info
-F16::Run http://twitter.com
-F17::Run http://tumblr.com
-F18::Run http://www.reddit.com
-F19::Run https://facebook.com
 
 ; --------------------------------------------------------------
 ; OS X system shortcuts
@@ -160,18 +155,25 @@ Lwin & Tab::AltTab
 ; Map Alt + 3 to #
 !3::SendInput {#}
 
+; --------------------------------------------------------------
+; PT-PT Mac keyboard specific remapping
+; --------------------------------------------------------------
 
+VKDE::VKBF ; set key  ~
+VKBF::VKDC ; set key \
+VKBB::VKDE ; set key º
+VKDD::VKBB ; set key +
 
 ; --------------------------------------------------------------
 ; Custom mappings for special chars
 ; --------------------------------------------------------------
 
-;#ö::SendInput {[} 
-;#ä::SendInput {]} 
+RAlt & a::Send {U+00E4} ; RightAlt + a -> ä
+RAlt & u::Send {U+00FC} ; RightAlt + u -> ü
+RAlt & o::Send {U+00F6} ; RightAlt + o -> ö 
+RAlt & s::Send {U+00DF} ; RightAlt + s -> ß
 
-;^ö::SendInput {{} 
-;^ä::SendInput {}} 
-
+;RAlt & RShift & a::Send {U+00C4} ; RightAlt + RightShift + a -> Ä; not working
 
 ; --------------------------------------------------------------
 ; Application specific
@@ -187,4 +189,3 @@ Lwin & Tab::AltTab
 #!u::Send ^u
 
 #IfWinActive
-
